@@ -5,6 +5,6 @@ from django.shortcuts import render
 def home(request) -> None:
     """ função sobre """
     #            request, arquivo
-    return render(request, 'recipes/home.html', status=200, context={
+    return render(request, 'recipes/pages/home.html', status=200, context={
         "name": "Luiz filipe"
         })
