@@ -15,25 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
+from django.urls import path, include
 
-# exemplo de view:
-
-
-def myview(request) -> None:
-    """ função exemplo """
-    return HttpResponse("A resposta viria com essa função")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', myview), # pagina raiz
-    path('sobre/', myview)  # 1.
+    # incluimos as rotas do app recipes
+    path('', include('recipes.urls')),
 ]
-
-
-# Porta de entrada da aplicação. Vamos conseguir indicar os caminhos
-# que cada url vai tomar usando apps
-# 1. eu quero um caminho que aponte para algun lugar usando o path('algo/'),
-# por enquanto n vai ver nada e precisa dos outros parametros.
-# o view tem que receber como argumento o request e retornar um reponse
