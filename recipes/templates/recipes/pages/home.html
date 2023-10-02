@@ -11,8 +11,9 @@
 
 {% block content %}
   <div class="main-content main-content-list container">
-      {% include "recipes/partials/recipe-list.html" %}
-      {% include "recipes/partials/recipe-list.html" %}
-      {% include "recipes/partials/recipe-list.html" %}
+    {% for recipe in recipes %}
+        {% include "recipes/partials/recipe-list.html" %}
+    {% endfor %}
+    {% comment %} cada card do home vai poder acessa os dados da sua receita {% endcomment %}
   </div>
 {% endblock content %}

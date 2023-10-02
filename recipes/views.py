@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from utils.recipes.factory import make_recipe
 # from django.http import HttpResponse
 
 
@@ -6,7 +7,7 @@ def home(request) -> None:
     """ função sobre """
     #            request, arquivo
     return render(request, 'recipes/pages/home.html', status=200, context={
-        "name": "Luiz filipe"
+        'recipes': [make_recipe() for _ in range(10)]
         })
 
 # recebendo o id
@@ -17,5 +18,6 @@ def recipe(request, id) -> None:
     #            request, arquivo
     return render(request, 'recipes/pages/recipe-view.html',
                     status=200, context={
-                    "name": "Luiz filipe"
+                    'recipe': make_recipe(),
+                    'is_detail_page': True,
                 })
